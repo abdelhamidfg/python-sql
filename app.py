@@ -2,7 +2,6 @@
 Created on 04-Sep-2019
 @author: bkadambi
 '''
-import pyodbc
 
 # -*- coding: UTF-8 -*-
 """
