@@ -6,7 +6,7 @@ ADD --chown=1001:0 / .
 # Install the dependencies
 USER root
 
-#yum install rh-python36-python-devel
+#yum install rh-python38-python-devel
 RUN  yum install --disableplugin=subscription-manager -y  rh-python36-python-devel
 
 RUN pip install -r requirements.txt &&\ 
