@@ -1,7 +1,7 @@
 FROM registry.redhat.io/rhscl/python-38-rhel7
 
 # Add application sources
-ADD --chown=1001:0 app-src .
+ADD --chown=1001:0 . .
 
 # Install the dependencies
 RUN pip install -r requirements.txt &&\ 
