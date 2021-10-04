@@ -17,6 +17,6 @@ RUN pip install -r requirements.txt &&\
    # python manage.py migrate
 
 # Run the application
-#CMD python manage.py runserver 0.0.0.0:8080
+CMD python app.py runserver 0.0.0.0:8080
 	# Run as the root user
  
