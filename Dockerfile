@@ -4,6 +4,10 @@ FROM registry.redhat.io/rhscl/python-38-rhel7
 ADD --chown=1001:0 / .
 
 # Install the dependencies
+
+#yum install rh-python36-python-devel
+RUN yum install rh-python36-python-devel
+
 RUN pip install -r requirements.txt &&\ 
     pip install pyodbc 
       
