@@ -16,7 +16,7 @@ app = Flask(__name__)    # Construct an instance of Flask class for our webapp
 def main():
     """Say hello"""
     print("step1 ")  
-    server = '192.168.1.189'
+    server = '192.168.2.189'
     database = 'TestDB'
     username = 'SA'
     password = 'Passw0rd$123'
