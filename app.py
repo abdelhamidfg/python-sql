@@ -21,7 +21,7 @@ def main():
     password = 'Passw0rd$123'
 
     #Connection String
-    connection = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
     cursor = connection.cursor()
 
     #Sample select query
