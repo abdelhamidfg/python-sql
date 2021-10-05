@@ -22,7 +22,23 @@ def main():
        print(driver_name)
     else:
          print('(No suitable driver found. Cannot connect.)')
-    return 'Hello, world!'
+    server = '192.168.1.189'
+    database = 'master'
+    username = 'SA'
+    password = 'Passw0rd$123'
+
+    #Connection String
+    connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = connection.cursor()
+
+    #Sample select query
+    cursor.execute("SELECT @@version;")
+    row = cursor.fetchone()
+    while row:
+          print (row[0])
+          row = cursor.fetchone()
+         
+  return 'Hello, world!'
 
 if __name__ == '__main__':  # Script executed directly?
     print("Hello, World. Uses S2I to build the application.")
