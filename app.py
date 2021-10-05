@@ -38,7 +38,7 @@ def main():
           print (row[0])
           row = cursor.fetchone()
          
-  return 'Hello, world!'
+    return 'Hello, world!'
 
 if __name__ == '__main__':  # Script executed directly?
     print("Hello, World. Uses S2I to build the application.")
