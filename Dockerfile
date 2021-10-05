@@ -1,4 +1,4 @@
-FROM rhscl/python-36-rhel7:latest
+FROM  registry.redhat.io/rhscl/python-38-rhel7
 
 USER 0
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
