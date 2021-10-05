@@ -28,7 +28,7 @@ cursor = connection.cursor()
 cursor.execute("SELECT @@version;")
 row = cursor.fetchone()
 while row:
-    print row[0]
+    print (row[0])
     row = cursor.fetchone()
 
     return 'Hello, world!'
