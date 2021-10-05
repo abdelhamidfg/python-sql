@@ -23,7 +23,7 @@ def main():
     try: 
         #Connection String
         print("step2 ")
-        connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+        connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';port=1433;UID='+username+';PWD='+ password)
         print(connection)
         cursor = connection.cursor()
         print("step3 ")
