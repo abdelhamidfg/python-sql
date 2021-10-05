@@ -10,3 +10,7 @@ RUN pip install pyodbc
 USER 1001
 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+
+# Run the application
+CMD python app.py runserver 0.0.0.0:8080
+	# Run as the root user
