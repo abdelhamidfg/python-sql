@@ -15,22 +15,13 @@ app = Flask(__name__)    # Construct an instance of Flask class for our webapp
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
     """Say hello"""
-    server = '192.168.1.189'
-    database = 'master'
-    username = 'SA'
-    password = 'Passw0rd$123'
-
-    #Connection String
-    connection = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-    cursor = connection.cursor()
-
-    #Sample select query
-    cursor.execute("SELECT @@version;")
-    row = cursor.fetchone()
-    while row:
-          print (row[0])
-          row = cursor.fetchone()
-
+    driver_name = ''
+    driver_names = [x for x in pyodbc.drivers() if x.endswith(' for SQL Server')]
+    if driver_names:
+       driver_name = driver_names[0]
+       print(driver_name)
+    else:
+         print('(No suitable driver found. Cannot connect.)')
     return 'Hello, world!'
 
 if __name__ == '__main__':  # Script executed directly?
