@@ -26,19 +26,20 @@ def main():
     database = 'master'
     username = 'SA'
     password = 'Passw0rd$123'
+    try: 
+        #Connection String
+        connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+        print(connection)
+        cursor = connection.cursor()
 
-    #Connection String
-    connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-    print(connection)
-    cursor = connection.cursor()
-
-    #Sample select query
-    cursor.execute("SELECT @@version;")
-    row = cursor.fetchone()
-    while row:
-          print (row[0])
-          row = cursor.fetchone()
-         
+        #Sample select query
+        cursor.execute("SELECT @@version;")
+        row = cursor.fetchone()
+        while row:
+              print (row[0])
+              row = cursor.fetchone()
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
     return 'Hello, world!'
 
 if __name__ == '__main__':  # Script executed directly?
