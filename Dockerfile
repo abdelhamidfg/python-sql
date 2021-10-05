@@ -1,22 +1,12 @@
-FROM registry.redhat.io/rhscl/python-38-rhel7
+FROM rhscl/python-36-rhel7:latest
 
-# Add application sources
-ADD --chown=1001:0 / .
+USER 0
+RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/msprod.repo
 
-# Install the dependencies
-USER root
+RUN ACCEPT_EULA=Y yum -y install msodbcsql17 mssql-tools unixODBC-devel && yum clean all
 
-#yum install rh-python38-python-devel
-RUN  yum install --disableplugin=subscription-manager -y  unixODBC-devel
+RUN pip install pyodbc
 
-RUN pip install -r requirements.txt &&\ 
-    pip install pyodbc 
-      
-    
-   # python manage.py collectstatic --noinput && \
-   # python manage.py migrate
+USER 1001
 
-# Run the application
-CMD python app.py runserver 0.0.0.0:8080
-	# Run as the root user
- 
+RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
