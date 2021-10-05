@@ -17,7 +17,7 @@ def main():
     """Say hello"""
     print("step1 ")  
     server = '192.168.1.189'
-    database = 'master'
+    database = 'TestDB'
     username = 'SA'
     password = 'Passw0rd$123'
     try: 
