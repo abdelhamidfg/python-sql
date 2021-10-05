@@ -1,4 +1,4 @@
-FROM  registry.redhat.io/rhscl/python-38-rhel7
+FROM  registry.redhat.io/rhscl/python-38-rhel8
 
 # Add application sources
 ADD --chown=1001:0 / .
