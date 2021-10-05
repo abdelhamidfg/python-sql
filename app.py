@@ -15,23 +15,23 @@ app = Flask(__name__)    # Construct an instance of Flask class for our webapp
 @app.route('/')   # URL '/' to be handled by main() route handler
 def main():
     """Say hello"""
-server = '192.168.1.189'
-database = 'master'
-username = 'SA'
-password = 'Passw0rd$123'
+    server = '192.168.1.189'
+    database = 'master'
+    username = 'SA'
+    password = 'Passw0rd$123'
 
-#Connection String
-connection = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = connection.cursor()
+    #Connection String
+    connection = pyodbc.connect('DRIVER={SQL Server Native Client 11.0};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = connection.cursor()
 
-#Sample select query
-cursor.execute("SELECT @@version;")
-row = cursor.fetchone()
-while row:
-    print (row[0])
+    #Sample select query
+    cursor.execute("SELECT @@version;")
     row = cursor.fetchone()
+    while row:
+          print (row[0])
+          row = cursor.fetchone()
 
-return 'Hello, world!'
+    return 'Hello, world!'
 
 if __name__ == '__main__':  # Script executed directly?
     print("Hello, World. Uses S2I to build the application.")
