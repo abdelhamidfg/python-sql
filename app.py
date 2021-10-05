@@ -29,6 +29,7 @@ def main():
 
     #Connection String
     connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+    print(connection)
     cursor = connection.cursor()
 
     #Sample select query
