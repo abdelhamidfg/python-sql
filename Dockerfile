@@ -1,1 +1,1 @@
-FROM  oneshare/python-sql2
+FROM  python-sql2
