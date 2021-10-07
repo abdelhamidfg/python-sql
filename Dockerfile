@@ -1,1 +1,1 @@
-FROM  oneshare/python-sql112:latest
+FROM  oneshare/python-sql2
