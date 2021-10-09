@@ -36,7 +36,7 @@ def main():
               row = cursor.fetchone()
     except:
         print("Oops!", sys.exc_info()[0], "occurred.")
-    return 'Hello, world!'
+    return 'Hello, world! v1'
 
 if __name__ == '__main__':  # Script executed directly?
     print("Hello, World. Uses S2I to build the application.")
